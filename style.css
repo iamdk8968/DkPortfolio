@@ -1,0 +1,17 @@
+/* Additional CSS (kept small since Tailwind is used) */
+:root{--accent1:#00d4ff;--accent2:#ff7a59}
+body { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+.glass { transition: transform .25s, box-shadow .25s; }
+.proj-card:hover { transform: translateY(-6px) scale(1.01); box-shadow:0 10px 30px rgba(2,6,23,0.6); }
+
+@media (max-width: 750px) {
+  #mobileMenu {
+    position: absolute !important;
+    background: white;
+    z-index: 40;
+  }
+
+  .dark #mobileMenu {
+    background: #000;
+  }
+}
