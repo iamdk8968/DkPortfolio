@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dhananjay — Portfolio</title>
   <meta name="description" content="Portfolio of Dhananjay — Video Editor & Motion Designer" />
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- GSAP CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
@@ -23,6 +21,11 @@
     .cursor-glow{position:fixed;pointer-events:none;z-index:60;width:120px;height:120px;border-radius:50%;transform:translate(-50%,-50%);mix-blend-mode:screen;opacity:.12;background:radial-gradient(circle, rgba(0,212,255,0.9) 0%, rgba(255,122,89,0.6) 60%, transparent 61%)}
     .skill-bar{height:10px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden}
     .skill-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent1),var(--accent2));border-radius:999px}
+    
+    /* Style for new category cards */
+    .category-card { transition: transform .25s, box-shadow .25s; }
+    .category-card:hover { transform: translateY(-6px) scale(1.01); box-shadow:0 10px 30px rgba(2,6,23,0.6); }
+
     /* Light theme */
     body.light{background:linear-gradient(180deg,#f6f8fb 0%, #eef2f6 100%);color:#0b1220}
     body.light .glass{background:rgba(255,255,255,0.8);border-color:rgba(2,6,23,0.04)}
@@ -32,7 +35,6 @@
 </head>
 <body class="antialiased">
 
-  <!-- Preloader: Animated SVG -->
   <div id="preloader" class="preloader">
     <svg width="160" height="160" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden>
       <defs>
@@ -48,28 +50,21 @@
     </svg>
   </div>
 
-  <!-- Particles canvas -->
   <canvas id="particles" class="particle-canvas" aria-hidden></canvas>
 
-  <!-- Cursor glow -->
   <div id="cursorGlow" class="cursor-glow" aria-hidden></div>
 
-  <!-- Top nav -->
-  <!-- ✅ NAVBAR -->
-<header class="fixed top-0 left-0 w-full z-50 bg-white/70 dark:bg-black/50 backdrop-blur-xl shadow-sm">
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/70 dark:bg-black/50 backdrop-blur-xl shadow-sm">
   <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
 
-    <!-- LOGO -->
     <h1 class="text-2xl font-bold dark:text-white">Dhananjay</h1>
 
-    <!-- ✅ HAMBURGER BUTTON -->
     <button id="menuBtn" class="lg:hidden flex flex-col gap-1.5 focus:outline-none">
       <span class="block w-7 h-0.5 bg-black dark:bg-white"></span>
       <span class="block w-7 h-0.5 bg-black dark:bg-white"></span>
       <span class="block w-7 h-0.5 bg-black dark:bg-white"></span>
     </button>
 
-    <!-- ✅ NAV MENU -->
     <nav id="mobileMenu"
       class="lg:flex lg:gap-10 lg:items-center text-black dark:text-white font-medium lg:static absolute top-full left-0 w-full lg:w-auto bg-white dark:bg-black lg:bg-transparent lg:dark:bg-transparent hidden lg:block">
 
@@ -77,22 +72,19 @@
         <li><a href="#home" class="hover:text-blue-500">Home</a></li>
         <li><a href="#about" class="hover:text-blue-500">About</a></li>
         <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
-        <li><a href="#portfolio" class="hover:text-blue-500">Portfolio</a></li>
+        <li><a href="#work" class="hover:text-blue-500">My Work</a></li>
         <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
       </ul>
 
     </nav>
 
-    <!-- ✅ THEME TOGGLE BUTTON -->
     <button id="themeToggle" class="hidden lg:block text-xl dark:text-white">🌓</button>
   </div>
 </header>
 
 
-  <!-- Main content -->
   <main class="relative z-10 pt-28">
 
-    <!-- Hero -->
     <section id="home" class="max-w-6xl mx-auto px-6">
       <div class="hero-grid grid grid-cols-[1fr_360px] gap-8 items-center">
         <div class="space-y-6">
@@ -104,7 +96,6 @@
             <a href="#contact" class="px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-cyan-400 to-orange-400 text-black">Hire Me</a>
           </div>
 
-          <!-- Quick stats -->
           <div class="flex gap-3 mt-6">
             <div class="glass rounded-lg p-3 text-sm">
               <div class="font-bold">4+ yrs</div><div class="text-xs text-slate-300">Experience</div>
@@ -118,7 +109,6 @@
           </div>
         </div>
 
-        <!-- Profile card with 3D parallax -->
         <aside id="profileCard" class="glass rounded-2xl p-4 perspective-1000">
           <div id="parallaxWrap" class="relative rounded-xl overflow-hidden" style="transform-style:preserve-3d">
             <img id="profilePhoto" class="w-full block profile-photo object-cover h-96" src="profile.png" alt="Dhananjay">
@@ -131,12 +121,10 @@
       </div>
     </section>
 
-    <!-- Skills -->
     <section id="skills" class="max-w-6xl mx-auto px-6 mt-16">
       <h2 class="text-2xl font-bold">Skills & Tools</h2>
       <p class="text-slate-300 mt-2">Software proficiency with visual indicators</p>
       <div class="grid md:grid-cols-3 gap-6 mt-6">
-        <!-- Skill item -->
         <div class="glass rounded-xl p-4">
           <div class="flex items-center gap-3">
             <img src="icons/premiere.png" class="w-12 h-12" alt="Premiere">
@@ -205,43 +193,66 @@
       </div>
     </section>
 
-    <!-- Work / Video Gallery -->
     <section id="work" class="max-w-6xl mx-auto px-6 mt-16">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-2xl font-bold">Selected Work</h2>
-          <p class="text-slate-300">Click a thumbnail to open a preview</p>
+          <h2 class="text-2xl font-bold">My Work</h2>
+          <p class="text-slate-300">Click a category to see the related projects</p>
         </div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 mt-6">
-        <div class="proj-card glass rounded-xl overflow-hidden cursor-pointer" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
-          <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=900&auto=format&fit=crop&s=placeholder" class="w-full h-44 object-cover">
+        
+        <a href="work-vlogs.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Travel Vlogs">
           <div class="p-4">
-            <div class="font-semibold">Travel Vlog Edit</div>
-            <div class="text-xs text-slate-300">Premiere Pro • Color Grade</div>
+            <div class="font-semibold">Travel Vlogs</div>
+            <div class="text-xs text-slate-300">Cinematic editing and color grading for travel stories.</div>
           </div>
-        </div>
+        </a>
 
-        <div class="proj-card glass rounded-xl overflow-hidden cursor-pointer" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
-          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=900&auto=format&fit=crop&s=placeholder" class="w-full h-44 object-cover">
+        <a href="work-documentary.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Documentary">
           <div class="p-4">
-            <div class="font-semibold">Documentary Cut</div>
-            <div class="text-xs text-slate-300">Editing • Sound Mix</div>
+            <div class="font-semibold">Documentary</div>
+            <div class="text-xs text-slate-300">Long-form narrative editing and sound mixing.</div>
           </div>
-        </div>
+        </a>
 
-        <div class="proj-card glass rounded-xl overflow-hidden cursor-pointer" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
-          <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=900&auto=format&fit=crop&s=placeholder" class="w-full h-44 object-cover">
+        <a href="work-promos.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Promo Reels">
           <div class="p-4">
-            <div class="font-semibold">Promo Reel</div>
-            <div class="text-xs text-slate-300">AE • Motion Graphics</div>
+            <div class="font-semibold">Promo Reels</div>
+            <div class="text-xs text-slate-300">AE & Motion Graphics for brand promotions.</div>
           </div>
-        </div>
+        </a>
+
+        <a href="work-reels.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1611162617213-057AD49e6189?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Social Media Reels">
+          <div class="p-4">
+            <div class="font-semibold">Social Media (Reels)</div>
+            <div class="text-xs text-slate-300">Engaging short-form content for TikTok and Reels.</div>
+          </div>
+        </a>
+
+        <a href="work-corporate.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1556761175-59736f82b86a?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Corporate Videos">
+          <div class="p-4">
+            <div class="font-semibold">Corporate Videos</div>
+            <div class="text-xs text-slate-300">Professional edits for training and external videos.</div>
+          </div>
+        </a>
+
+        <a href="work-motion.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1558346489-194F3c61c2b8?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Motion Graphics">
+          <div class="p-4">
+            <div class="font-semibold">Motion Graphics</div>
+            <div class="text-xs text-slate-300">Standalone 2D/3D motion design and logo animations.</div>
+          </div>
+        </a>
+
       </div>
     </section>
-
-    <!-- Video Lightbox -->
     <div id="lightbox" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4">
       <div class="max-w-4xl w-full relative">
         <button id="closeLB" class="absolute -top-6 right-0 bg-white/10 px-3 py-2 rounded-md">Close</button>
@@ -249,7 +260,6 @@
       </div>
     </div>
 
-    <!-- Experience / Timeline -->
     <section id="timeline" class="max-w-6xl mx-auto px-6 mt-20">
       <h2 class="text-2xl font-bold">Experience & Education</h2>
       <div class="mt-8 space-y-6">
@@ -285,7 +295,6 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
     <section id="testimonials" class="max-w-6xl mx-auto px-6 mt-20">
       <h2 class="text-2xl font-bold">Client Testimonials</h2>
       <div class="mt-6 grid md:grid-cols-2 gap-6">
@@ -300,7 +309,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="max-w-6xl mx-auto px-6 mt-20 mb-32">
       <div class="grid md:grid-cols-2 gap-6">
         <div class="glass p-6 rounded-xl">
@@ -332,9 +340,6 @@
 
     <footer class="max-w-6xl mx-auto px-6 mb-12 text-center text-slate-400">© 2025 Dhananjay — Video Editor • Motion Designer</footer>
   </main>
-
-  <!-- Lightbox & other elements populated by JS -->
-
 
   <script>
   /*******************************
@@ -446,6 +451,8 @@ menuBtn.addEventListener("click", () => {
 
   /*******************************
    * Projects lightbox (video)
+   * This now only works on .proj-card, not .category-card
+   * You can re-use this JS on your new pages (e.g., work-vlogs.html)
    *******************************/
   const lightbox = document.getElementById('lightbox');
   const lbFrame = document.getElementById('lbFrame');

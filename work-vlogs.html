@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dhananjay — Travel Vlogs</title>
+  <meta name="description" content="Portfolio of Dhananjay — Video Editor & Motion Designer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+  <style>
+    :root{--accent1:#00d4ff;--accent2:#ff7a59}
+    html,body{height:100%}
+    body{background:linear-gradient(180deg,#071019 0%, #021018 100%);color:#e6eef6;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    .glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.04)}
+    .preloader {position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#071019;z-index:9999}
+    .particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.85}
+    .cursor-glow{position:fixed;pointer-events:none;z-index:60;width:120px;height:120px;border-radius:50%;transform:translate(-50%,-50%);mix-blend-mode:screen;opacity:.12;background:radial-gradient(circle, rgba(0,212,255,0.9) 0%, rgba(255,122,89,0.6) 60%, transparent 61%)}
+    .proj-card:hover { transform: translateY(-6px) scale(1.01); box-shadow:0 10px 30px rgba(2,6,23,0.6); transition: transform .25s, box-shadow .25s; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <div id="preloader" class="preloader">
+    <svg width="160" height="160" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#00d4ff"/><stop offset="1" stop-color="#ff7a59"/></linearGradient></defs>
+      <g transform="translate(50,50)">
+        <circle cx="0" cy="0" r="28" stroke="rgba(255,255,255,0.06)" stroke-width="6" fill="none"/>
+        <path id="arc" d="M28 0 A28 28 0 0 1 0 28" stroke="url(#g)" stroke-width="6" stroke-linecap="round" fill="none"/>
+      </g>
+    </svg>
+  </div>
+  <canvas id="particles" class="particle-canvas" aria-hidden></canvas>
+  <div id="cursorGlow" class="cursor-glow" aria-hidden></div>
+
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/70 dark:bg-black/50 backdrop-blur-xl shadow-sm">
+    <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold dark:text-white">Dhananjay</h1>
+      <nav class="hidden lg:flex lg:gap-10 lg:items-center text-black dark:text-white font-medium">
+        <ul class="flex flex-row gap-6 text-lg">
+          <li><a href="index.html#home" class="hover:text-blue-500">Home</a></li>
+          <li><a href="index.html#about" class="hover:text-blue-500">About</a></li>
+          <li><a href="index.html#skills" class="hover:text-blue-500">Skills</a></li>
+          <li><a href="index.html#work" class="hover:text-blue-500">My Work</a></li>
+          <li><a href="index.html#contact" class="hover:text-blue-500">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="hidden lg:block text-xl dark:text-white">🌓</button>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-28">
+    <section id="work-gallery" class="max-w-6xl mx-auto px-6 mt-16 mb-32">
+      <a href="index.html#work" class="glass px-4 py-2 rounded-md hover:scale-105">&larr; Back to Categories</a>
+      
+      <h2 class="text-3xl font-bold mt-6">Travel Vlogs</h2>
+      <p class="text-slate-300">Cinematic editing and color grading for travel stories. Click a thumbnail to play.</p>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        
+        <div class="proj-card glass rounded-xl overflow-hidden cursor-pointer" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+          <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Vlog Thumbnail">
+          <div class="p-4">
+            <div class="font-semibold">Manali Vlog</div>
+            <div class="text-xs text-slate-300">Premiere Pro • DaVinci Resolve</div>
+          </div>
+        </div>
+
+        <div class="proj-card glass rounded-xl overflow-hidden cursor-pointer" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+          <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Vlog Thumbnail">
+          <div class="p-4">
+            <div class="font-semibold">Goa Adventure</div>
+            <div class="text-xs text-slate-300">Editing • Color Grade</div>
+          </div>
+        </div>
+        
+        <div class="proj-card glass rounded-xl overflow-hidden cursor-pointer" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+          <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Vlog Thumbnail">
+          <div class="p-4">
+            <div class="font-semibold">Europe Trip</div>
+            <div class="text-xs text-slate-300">Cinematic Edit</div>
+          </div>
+        </div>
+        
+        </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4">
+    <div class="max-w-4xl w-full relative">
+      <button id="closeLB" class="absolute -top-6 right-0 bg-white/10 px-3 py-2 rounded-md">Close</button>
+      <iframe id="lbFrame" src="" class="w-full aspect-video rounded-xl" allow="autoplay; encrypted-media" title="Preview"></iframe>
+    </div>
+  </div>
+  
+  <footer class="max-w-6xl mx-auto px-6 mb-12 text-center text-slate-400">© 2025 Dhananjay — Video Editor • Motion Designer</footer>
+
+  <script>
+    // Preloader
+    const preloader = document.getElementById('preloader');
+    gsap.to("#arc", {rotation:360, transformOrigin:"50% 50%", repeat:-1, duration:1.8, ease:"power1.inOut"});
+    window.addEventListener('load', () => {
+      gsap.to(preloader, {autoAlpha:0, y:-20, duration:0.6, onComplete: ()=> preloader.style.display='none'});
+    });
+    // Cursor
+    const cursor = document.getElementById('cursorGlow');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    // Theme
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+    });
+    // Particles
+    (function initParticles(){
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = innerWidth; let h = canvas.height = innerHeight;
+      window.addEventListener('resize', ()=>{ w=canvas.width=innerWidth; h=canvas.height=innerHeight; });
+      const particles = []; const colors = ['#00d4ff','#ff7a59','#7bf0d4','#ffd36a'];
+      function rand(min,max){ return Math.random()*(max-min)+min; }
+      for(let i=0;i<80;i++){ particles.push({x:rand(0,w), y:rand(0,h), r:rand(0.6,2.5), vx:rand(-0.3,0.3), vy:rand(-0.2,0.2), c:colors[i%colors.length]}) }
+      function draw(){
+        ctx.clearRect(0,0,w,h);
+        particles.forEach(p=>{
+          p.x += p.vx; p.y += p.vy;
+          if(p.x<0) p.x = w; if(p.x>w) p.x = 0; if(p.y<0) p.y = h; if(p.y>h) p.y = 0;
+          ctx.beginPath(); ctx.fillStyle = p.c; ctx.globalAlpha = 0.12; ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lbFrame = document.getElementById('lbFrame');
+    document.querySelectorAll('.proj-card').forEach(card => {
+      card.addEventListener('click', ()=>{
+        const src = card.dataset.src;
+        lbFrame.src = src + '?autoplay=1';
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex'); // Show lightbox
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    document.getElementById('closeLB').addEventListener('click', ()=> {
+      lbFrame.src = '';
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex'); // Hide lightbox
+      document.body.style.overflow = '';
+    });
+  </script>
+</body>
+</html>
