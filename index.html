@@ -9,7 +9,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
+    
     /* Minimal extra styling */
     :root{--accent1:#00d4ff;--accent2:#ff7a59}
     html,body{height:100%}
@@ -31,6 +34,15 @@
     body.light .glass{background:rgba(255,255,255,0.8);border-color:rgba(2,6,23,0.04)}
     /* Responsive tweaks */
     @media (max-width:768px){ .hero-grid{grid-template-columns:1fr!important} .profile-photo{height:320px} }
+
+     /* SCROLL ANIMATION  */
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-scroll {
+    animation: scroll 18s linear infinite;
+  }
   </style>
 </head>
 <body class="antialiased">
@@ -70,9 +82,9 @@
 
       <ul class="flex flex-col lg:flex-row gap-6 text-lg px-6 py-4 lg:p-0">
         <li><a href="#home" class="hover:text-blue-500">Home</a></li>
+        <li><a href="#work" class="hover:text-blue-500">My Work</a></li>
         <li><a href="#about" class="hover:text-blue-500">About</a></li>
         <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
-        <li><a href="#work" class="hover:text-blue-500">My Work</a></li>
         <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
       </ul>
 
@@ -121,7 +133,181 @@
       </div>
     </section>
 
-    <section id="skills" class="max-w-6xl mx-auto px-6 mt-16">
+  
+
+    <section id="work" class="max-w-6xl mx-auto px-6 mt-16">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-bold">My Work</h2>
+          <p class="text-slate-300">Click a category to see the related projects</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        
+        <a href="work-podcast.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://plus.unsplash.com/premium_photo-1683140707316-42df87760f3f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" class="w-full h-44 object-cover" alt="Podcast video">
+          <div class="p-4">
+            <div class="font-semibold">Podcast Editing</div>
+            <div class="text-xs text-slate-300">Engaging Podcast Cuts with Seamless Flow</div>
+          </div>
+        </a>
+
+        <a href="work-documentary.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Documentary">
+          <div class="p-4">
+            <div class="font-semibold">Documentary</div>
+            <div class="text-xs text-slate-300">Narrative Editing with Depth, Pace & Visual Consistency</div>
+          </div>
+        </a>
+
+        <a href="motion-graphic.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="motion-graphic Reels">
+          <div class="p-4">
+            <div class="font-semibold">Motion Graphics</div>
+            <div class="text-xs text-slate-300">AE & Motion Graphics for brand promotions.</div>
+          </div>
+        </a>
+
+        <a href="work-reels.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1683721003111-070bcc053d8b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1100" class="w-full h-44 object-cover" alt="Social Media Reels">
+          <div class="p-4">
+            <div class="font-semibold">Social Media (Reels)</div>
+            <div class="text-xs text-slate-300">Engaging short-form content for TikTok and Reels.</div>
+          </div>
+        </a>
+
+        <a href="work-youtube.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Corporate Videos">
+          <div class="p-4">
+            <div class="font-semibold">Youtube Videos</div>
+            <div class="text-xs text-slate-300">Professional edits for training and external videos.</div>
+          </div>
+        </a>
+
+        <a href="work-promo.html" class="category-card glass rounded-xl overflow-hidden block">
+          <img src="https://images.unsplash.com/photo-1501780392773-287d506245a5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" class="w-full h-44 object-cover" alt="Motion Graphics">
+          <div class="p-4">
+            <div class="font-semibold">Promo Reels</div>
+            <div class="text-xs text-slate-300">Standalone 2D/3D motion design and logo animations.</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+    <div id="lightbox" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4">
+      <div class="max-w-4xl w-full relative">
+        <button id="closeLB" class="absolute -top-6 right-0 bg-white/10 px-3 py-2 rounded-md">Close</button>
+        <iframe id="lbFrame" src="" class="w-full aspect-video rounded-xl" allow="autoplay; encrypted-media" title="Preview"></iframe>
+      </div>
+    </div>
+
+   <section id="about" class="max-w-6xl mx-auto px-6 mt-20 grid md:grid-cols-2 gap-12 items-center">
+  
+  <!-- LEFT SIDE CONTENT -->
+  <div data-aos="fade-right">
+    <h2 class="text-2xl font-bold">About Me</h2>
+
+    <p class="text-slate-300 mt-4 leading-relaxed">
+      I’m Dhananjay, a passionate Video Editor & Motion Designer with 4+ years of experience.
+      I specialize in documentary-style edits, cinematic promos, reels, YouTube content, and
+      professional lecture editing. With expertise in Adobe Premiere Pro & After Effects,
+      I bring stories to life through clean cuts, smooth transitions, and engaging visuals.
+    </p>
+
+    <p class="text-slate-300 mt-2 leading-relaxed">
+      Worked with KM Astroguru Pvt Ltd as a full-time editor and collaborated with several
+      brands and creators as a freelancer. I focus on fast delivery, creative storytelling,
+      and visually appealing motion graphics.
+    </p>
+
+    <!-- EXPERIENCE SECTION -->
+    <h2 class="text-2xl font-bold mt-10">Experience & Education</h2>
+
+    <div class="mt-8 space-y-6">
+      <!-- 2024 -->
+      <div class="flex gap-6 items-start" data-aos="fade-left">
+        <div class="w-14 text-center">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">24</div>
+        </div>
+        <div>
+          <div class="font-semibold">Video Editor — KM Astroguru Pvt Ltd (2024–Present)</div>
+          <div class="text-slate-300 text-sm">Full-time video editor handling long-form lectures, promo reels, and motion graphics.</div>
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="flex gap-6 items-start" data-aos="fade-left">
+        <div class="w-14 text-center">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">23</div>
+        </div>
+        <div>
+          <div class="font-semibold">Freelance Video Editor (2023–2024)</div>
+          <div class="text-slate-300 text-sm">Worked with creators on vlogs, travel edits, and brand promos.</div>
+        </div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="flex gap-6 items-start" data-aos="fade-left">
+        <div class="w-14 text-center">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">22</div>
+        </div>
+        <div>
+          <div class="font-semibold">BA — Graduated 2022</div>
+          <div class="text-slate-300 text-sm">Academic background with creative projects and short films.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE IMAGE -->
+<div class="relative group flex flex-col items-center" data-aos="fade-left">
+
+  <!-- Image Frame with Border -->
+  <div class="relative w-80 h-96 rounded-3xl overflow-hidden border-4 border-slate-600 shadow-xl">
+    <img src="myPhoto.webp" 
+         alt="Dhananjay"
+         class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
+  </div>
+
+  <!-- Buttons Section -->
+  <div class="flex gap-4 mt-6">
+
+    <!-- View Resume Button -->
+    <button onclick="openResumeModal()"
+      class="px-6 py-2 bg-slate-800 text-white font-semibold rounded-xl shadow-md border border-slate-600 hover:bg-slate-700 transition">
+      View Resume
+    </button>
+
+    <!-- Download Resume Button -->
+    <a href="https://drive.google.com/uc?export=download&id=1g7DJz7lfVlOdyuHUgcCTVWRkNlctBJ21"
+       class="px-6 py-2 bg-gradient-to-r from-cyan-400 to-orange-400 text-black font-semibold rounded-xl shadow-md hover:opacity-90 transition">
+      Download Resume
+    </a>
+
+  </div>
+</div>
+<!-- Resume Modal -->
+<div id="resumeModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center z-50">
+  <div class="bg-white w-[90%] h-[90%] rounded-xl shadow-xl overflow-hidden relative">
+
+    <!-- Close Button -->
+    <button onclick="closeResumeModal()"
+      class="absolute top-3 right-3 bg-black text-white w-8 h-8 rounded-full grid place-items-center text-lg">
+      ✕
+    </button>
+
+    <!-- Resume Iframe Viewer -->
+    <iframe 
+      src="https://drive.google.com/file/d/1g7DJz7lfVlOdyuHUgcCTVWRkNlctBJ21/preview"
+      class="w-full h-full">
+    </iframe>
+
+  </div>
+</div>
+
+</section>
+ <section id="skills" class="max-w-6xl mx-auto px-6 mt-16">
       <h2 class="text-2xl font-bold">Skills & Tools</h2>
       <p class="text-slate-300 mt-2">Software proficiency with visual indicators</p>
       <div class="grid md:grid-cols-3 gap-6 mt-6">
@@ -193,121 +379,57 @@
       </div>
     </section>
 
-    <section id="work" class="max-w-6xl mx-auto px-6 mt-16">
-      <div class="flex items-center justify-between">
+    <!-- AUTO SCROLLING TESTIMONIALS -->
+<section id="testimonials" class="max-w-6xl mx-auto px-6 mt-20">
+  <h2 class="text-2xl font-bold">Client Testimonials</h2>
+
+  <div class="relative overflow-hidden mt-8 group">
+    <div class="flex gap-6 animate-scroll group-hover:[animation-play-state:paused]">
+
+      <!-- Testimonial 1 -->
+      <div class="min-w-[400px] glass p-6 rounded-xl flex items-start gap-4">
+        <img src="image/client1.webp" class="w-12 h-12 rounded-full object-cover" />
         <div>
-          <h2 class="text-2xl font-bold">My Work</h2>
-          <p class="text-slate-300">Click a category to see the related projects</p>
+          <p class="italic text-sm">“"Every video I gave to Dhananjay, he delivered beyond expectations.
+Smooth transitions, clean audio, and great visual appeal — everything was perfect."</p>
+          <div class="mt-2 font-semibold">K.M. Sinha</div>
+          <div class="text-xs text-slate-400">Astrologer</div>
         </div>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 mt-6">
-        
-        <a href="work-podcast.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://plus.unsplash.com/premium_photo-1683140707316-42df87760f3f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" class="w-full h-44 object-cover" alt="Podcast video">
-          <div class="p-4">
-            <div class="font-semibold">Podcast Editing</div>
-            <div class="text-xs text-slate-300">Engaging Podcast Cuts with Seamless Flow</div>
-          </div>
-        </a>
-
-        <a href="work-documentary.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Documentary">
-          <div class="p-4">
-            <div class="font-semibold">Documentary</div>
-            <div class="text-xs text-slate-300">Narrative Editing with Depth, Pace & Visual Consistency</div>
-          </div>
-        </a>
-
-        <a href="work-promos.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Promo Reels">
-          <div class="p-4">
-            <div class="font-semibold">Promo Reels</div>
-            <div class="text-xs text-slate-300">AE & Motion Graphics for brand promotions.</div>
-          </div>
-        </a>
-
-        <a href="work-reels.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://images.unsplash.com/photo-1683721003111-070bcc053d8b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1100" class="w-full h-44 object-cover" alt="Social Media Reels">
-          <div class="p-4">
-            <div class="font-semibold">Social Media (Reels)</div>
-            <div class="text-xs text-slate-300">Engaging short-form content for TikTok and Reels.</div>
-          </div>
-        </a>
-
-        <a href="work-corporate.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Corporate Videos">
-          <div class="p-4">
-            <div class="font-semibold">Corporate Videos</div>
-            <div class="text-xs text-slate-300">Professional edits for training and external videos.</div>
-          </div>
-        </a>
-
-        <a href="work-motion.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://images.unsplash.com/photo-1501780392773-287d506245a5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" class="w-full h-44 object-cover" alt="Motion Graphics">
-          <div class="p-4">
-            <div class="font-semibold">Motion Graphics</div>
-            <div class="text-xs text-slate-300">Standalone 2D/3D motion design and logo animations.</div>
-          </div>
-        </a>
-
+      <!-- Testimonial 2 -->
+      <div class="min-w-[350px] glass p-6 rounded-xl flex items-start gap-4">
+        <img src="image/client2.webp" class="w-12 h-12 rounded-full object-cover" />
+        <div>
+          <p class="italic text-sm">“Fast delivery, great color grading. I always hire him for my video work.”</p>
+          <div class="mt-2 font-semibold">Sukhman</div>
+          <div class="text-xs text-slate-400">Reel Creator • Producer</div>
+        </div>
       </div>
-    </section>
-    <div id="lightbox" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4">
-      <div class="max-w-4xl w-full relative">
-        <button id="closeLB" class="absolute -top-6 right-0 bg-white/10 px-3 py-2 rounded-md">Close</button>
-        <iframe id="lbFrame" src="" class="w-full aspect-video rounded-xl" allow="autoplay; encrypted-media" title="Preview"></iframe>
+
+      <!-- Testimonial 3 -->
+      <div class="min-w-[350px] glass p-6 rounded-xl flex items-start gap-4">
+        <img src="image/client3.webp" class="w-12 h-12 rounded-full object-cover" />
+        <div>
+          <p class="italic text-sm">“Dhananjay edited my podcast video beautifully. His storytelling sense is amazing!”</p>
+          <div class="mt-2 font-semibold">Gazal Arora</div>
+          <div class="text-xs text-slate-400">Moderator • Presenter</div>
+        </div>
       </div>
+
+       <!-- Testimonial 4 -->
+      <div class="min-w-[350px] glass p-6 rounded-xl flex items-start gap-4">
+        <img src="image/client4.webp" class="w-12 h-12 rounded-full object-cover" />
+        <div>
+          <p class="italic text-sm">“His motion graphics & pace control gave our product video a premium feel.”</p>
+          <div class="mt-2 font-semibold">Baani Bathla</div>
+          <div class="text-xs text-slate-400">Startup Founder</div>
+        </div>
+      </div>
+
     </div>
-
-    <section id="timeline" class="max-w-6xl mx-auto px-6 mt-20">
-      <h2 class="text-2xl font-bold">Experience & Education</h2>
-      <div class="mt-8 space-y-6">
-        <div class="flex gap-6 items-start">
-          <div class="w-14 text-center">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">24</div>
-          </div>
-          <div>
-            <div class="font-semibold">Video Editor — KM Astroguru Pvt Ltd (2022–Present)</div>
-            <div class="text-slate-300 text-sm">Full-time video editor handling long-form lectures, promo reels, and motion graphics.</div>
-          </div>
-        </div>
-
-        <div class="flex gap-6 items-start">
-          <div class="w-14 text-center">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">21</div>
-          </div>
-          <div>
-            <div class="font-semibold">Freelance Video Editor (2019–2022)</div>
-            <div class="text-slate-300 text-sm">Worked with creators on vlogs, travel edits, and brand promos.</div>
-          </div>
-        </div>
-
-        <div class="flex gap-6 items-start">
-          <div class="w-14 text-center">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">20</div>
-          </div>
-          <div>
-            <div class="font-semibold">BA — Graduated 2020</div>
-            <div class="text-slate-300 text-sm">Academic background with creative projects and short films.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="testimonials" class="max-w-6xl mx-auto px-6 mt-20">
-      <h2 class="text-2xl font-bold">Client Testimonials</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="glass p-6 rounded-xl">
-          <p class="italic">“Dhananjay edited my travel vlog beautifully. His storytelling sense is amazing and the color grade made the footage sing.”</p>
-          <div class="mt-3 font-semibold">— Aditya Singh</div>
-        </div>
-        <div class="glass p-6 rounded-xl">
-          <p class="italic">“Fast delivery and perfect color grading. I always hire him for my projects.”</p>
-          <div class="mt-3 font-semibold">— Priya Verma</div>
-        </div>
-      </div>
-    </section>
+  </div>
+</section>
 
     <section id="contact" class="max-w-6xl mx-auto px-6 mt-20 mb-32">
       <div class="grid md:grid-cols-2 gap-6">
@@ -342,6 +464,18 @@
   </main>
 
   <script>
+
+     AOS.init({
+    once: true,
+    duration: 900
+  });
+
+   function openResumeModal() {
+    document.getElementById("resumeModal").classList.remove("hidden");
+  }
+  function closeResumeModal() {
+    document.getElementById("resumeModal").classList.add("hidden");
+  }
   /*******************************
    * Basic utilities & setup
    *******************************/
