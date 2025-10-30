@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -12,52 +13,160 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
-    
     /* Minimal extra styling */
-    :root{--accent1:#00d4ff;--accent2:#ff7a59}
-    html,body{height:100%}
-    body{background:linear-gradient(180deg,#071019 0%, #021018 100%);color:#e6eef6;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    .glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.04)}
-    .logo{background:linear-gradient(135deg,var(--accent1),var(--accent2));mask-image:linear-gradient(#000,#000);-webkit-mask-image:linear-gradient(#000,#000)}
-    .preloader {position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#071019;z-index:9999}
-    .particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.85}
-    .cursor-glow{position:fixed;pointer-events:none;z-index:60;width:120px;height:120px;border-radius:50%;transform:translate(-50%,-50%);mix-blend-mode:screen;opacity:.12;background:radial-gradient(circle, rgba(0,212,255,0.9) 0%, rgba(255,122,89,0.6) 60%, transparent 61%)}
-    .skill-bar{height:10px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden}
-    .skill-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent1),var(--accent2));border-radius:999px}
-    
+    :root {
+      --accent1: #00d4ff;
+      --accent2: #ff7a59
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      background: linear-gradient(180deg, #071019 0%, #021018 100%);
+      color: #e6eef6;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.04)
+    }
+
+    .logo {
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      mask-image: linear-gradient(#000, #000);
+      -webkit-mask-image: linear-gradient(#000, #000)
+    }
+
+    .preloader {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #071019;
+      z-index: 9999
+    }
+
+    .particle-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.85
+    }
+
+    .cursor-glow {
+      position: fixed;
+      pointer-events: none;
+      z-index: 60;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: screen;
+      opacity: .12;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.9) 0%, rgba(255, 122, 89, 0.6) 60%, transparent 61%)
+    }
+
+    .skill-bar {
+      height: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 999px;
+      overflow: hidden
+    }
+
+    .skill-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      border-radius: 999px
+    }
+
     /* Style for new category cards */
-    .category-card { transition: transform .25s, box-shadow .25s; }
-    .category-card:hover { transform: translateY(-6px) scale(1.01); box-shadow:0 10px 30px rgba(2,6,23,0.6); }
+    .category-card {
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+    }
 
     /* Light theme */
-    body.light{background:linear-gradient(180deg,#f6f8fb 0%, #eef2f6 100%);color:#0b1220}
-    body.light .glass{background:rgba(255,255,255,0.8);border-color:rgba(2,6,23,0.04)}
-    /* Responsive tweaks */
-    @media (max-width:768px){ .hero-grid{grid-template-columns:1fr!important} .profile-photo{height:320px} }
+    body.light {
+      background: linear-gradient(180deg, #f6f8fb 0%, #eef2f6 100%);
+      color: #0b1220
+    }
 
-     /* SCROLL ANIMATION  */
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  .animate-scroll {
-    animation: scroll 18s linear infinite;
-  }
+    body.light .glass {
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(2, 6, 23, 0.04)
+    }
+
+    /* Responsive tweaks */
+    @media (max-width:768px) {
+      .hero-grid {
+        grid-template-columns: 1fr !important
+      }
+
+      .profile-photo {
+        height: 320px
+      }
+    }
+
+    /* SCROLL ANIMATION  */
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-scroll {
+      animation: scroll 18s linear infinite;
+    }
+
+  /* testimonial slider */
+ #testimonialSlider::-webkit-scrollbar {
+  display: none;
+}
+#testimonialSlider {
+  scrollbar-width: none;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
   </style>
 </head>
+
 <body class="antialiased">
 
   <div id="preloader" class="preloader">
     <svg width="160" height="160" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden>
       <defs>
         <linearGradient id="g" x1="0" x2="1">
-          <stop offset="0" stop-color="#00d4ff"/><stop offset="1" stop-color="#ff7a59"/>
+          <stop offset="0" stop-color="#00d4ff" />
+          <stop offset="1" stop-color="#ff7a59" />
         </linearGradient>
       </defs>
       <g transform="translate(50,50)">
-        <circle cx="0" cy="0" r="28" stroke="rgba(255,255,255,0.06)" stroke-width="6" fill="none"/>
-        <path id="arc" d="M28 0 A28 28 0 0 1 0 28" stroke="url(#g)" stroke-width="6" stroke-linecap="round" fill="none"/>
-        <text x="0" y="42" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle" font-family="Inter">Loading</text>
+        <circle cx="0" cy="0" r="28" stroke="rgba(255,255,255,0.06)" stroke-width="6" fill="none" />
+        <path id="arc" d="M28 0 A28 28 0 0 1 0 28" stroke="url(#g)" stroke-width="6" stroke-linecap="round"
+          fill="none" />
+        <text x="0" y="42" fill="rgba(255,255,255,0.5)" font-size="6" text-anchor="middle"
+          font-family="Inter">Loading</text>
       </g>
     </svg>
   </div>
@@ -67,32 +176,32 @@
   <div id="cursorGlow" class="cursor-glow" aria-hidden></div>
 
   <header class="fixed top-0 left-0 w-full z-50 bg-white/70 dark:bg-black/50 backdrop-blur-xl shadow-sm">
-  <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+    <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
 
-    <h1 class="text-2xl font-bold dark:text-white">Dhananjay</h1>
+      <h1 class="text-2xl font-bold dark:text-white">Dhananjay</h1>
 
-    <button id="menuBtn" class="lg:hidden flex flex-col gap-1.5 focus:outline-none">
-      <span class="block w-7 h-0.5 bg-black dark:bg-white"></span>
-      <span class="block w-7 h-0.5 bg-black dark:bg-white"></span>
-      <span class="block w-7 h-0.5 bg-black dark:bg-white"></span>
-    </button>
+      <button id="menuBtn" class="lg:hidden flex flex-col gap-1.5 focus:outline-none">
+        <span class="block w-7 h-0.5 bg-black dark:bg-white"></span>
+        <span class="block w-7 h-0.5 bg-black dark:bg-white"></span>
+        <span class="block w-7 h-0.5 bg-black dark:bg-white"></span>
+      </button>
 
-    <nav id="mobileMenu"
-      class="lg:flex lg:gap-10 lg:items-center text-black dark:text-white font-medium lg:static absolute top-full left-0 w-full lg:w-auto bg-white dark:bg-black lg:bg-transparent lg:dark:bg-transparent hidden lg:block">
+      <nav id="mobileMenu"
+        class="lg:flex lg:gap-10 lg:items-center text-black dark:text-white font-medium lg:static absolute top-full left-0 w-full lg:w-auto bg-white dark:bg-black lg:bg-transparent lg:dark:bg-transparent hidden lg:block">
 
-      <ul class="flex flex-col lg:flex-row gap-6 text-lg px-6 py-4 lg:p-0">
-        <li><a href="#home" class="hover:text-blue-500">Home</a></li>
-        <li><a href="#work" class="hover:text-blue-500">My Work</a></li>
-        <li><a href="#about" class="hover:text-blue-500">About</a></li>
-        <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
-        <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
-      </ul>
+        <ul class="flex flex-col lg:flex-row gap-6 text-lg px-6 py-4 lg:p-0">
+          <li><a href="#home" class="hover:text-blue-500">Home</a></li>
+          <li><a href="#work" class="hover:text-blue-500">My Work</a></li>
+          <li><a href="#about" class="hover:text-blue-500">About</a></li>
+          <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
+          <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+        </ul>
 
-    </nav>
+      </nav>
 
-    <button id="themeToggle" class="hidden lg:block text-xl dark:text-white">🌓</button>
-  </div>
-</header>
+      <button id="themeToggle" class="hidden lg:block text-xl dark:text-white">🌓</button>
+    </div>
+  </header>
 
 
   <main class="relative z-10 pt-28">
@@ -101,29 +210,39 @@
       <div class="hero-grid grid grid-cols-[1fr_360px] gap-8 items-center">
         <div class="space-y-6">
           <div class="tag text-sm text-orange-400 font-semibold">Crafting Emotions Through Edits</div>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Dhananjay — <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-orange-400">Cinematic Video Editor</span></h1>
-          <p class="max-w-3xl text-slate-300">I turn raw footage into cinematic stories. Expert in Premiere Pro, After Effects, Photoshop, Illustrator, CorelDRAW & DaVinci Resolve. I build rhythm, mood and motion for brands and creators.</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Dhananjay — <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-orange-400">Cinematic Video
+              Editor</span></h1>
+          <p class="max-w-3xl text-slate-300">I turn raw footage into cinematic stories. Expert in Premiere Pro, After
+            Effects, Photoshop, Illustrator, CorelDRAW & DaVinci Resolve. I build rhythm, mood and motion for brands and
+            creators.</p>
           <div class="flex gap-4 mt-4">
             <a href="#work" class="px-6 py-3 rounded-full font-semibold glass hover:scale-105">View My Work</a>
-            <a href="#contact" class="px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-cyan-400 to-orange-400 text-black">Hire Me</a>
+            <a href="#contact"
+              class="px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-cyan-400 to-orange-400 text-black">Hire
+              Me</a>
           </div>
 
           <div class="flex gap-3 mt-6">
             <div class="glass rounded-lg p-3 text-sm">
-              <div class="font-bold">4+ yrs</div><div class="text-xs text-slate-300">Experience</div>
+              <div class="font-bold">4+ yrs</div>
+              <div class="text-xs text-slate-300">Experience</div>
             </div>
             <div class="glass rounded-lg p-3 text-sm">
-              <div class="font-bold">100+</div><div class="text-xs text-slate-300">Projects</div>
+              <div class="font-bold">100+</div>
+              <div class="text-xs text-slate-300">Projects</div>
             </div>
             <div class="glass rounded-lg p-3 text-sm">
-              <div class="font-bold">Fast</div><div class="text-xs text-slate-300">Turnaround</div>
+              <div class="font-bold">Fast</div>
+              <div class="text-xs text-slate-300">Turnaround</div>
             </div>
           </div>
         </div>
 
         <aside id="profileCard" class="glass rounded-2xl p-4 perspective-1000">
           <div id="parallaxWrap" class="relative rounded-xl overflow-hidden" style="transform-style:preserve-3d">
-            <img id="profilePhoto" class="w-full block profile-photo object-cover h-96" src="profile.png" alt="Dhananjay">
+            <img id="profilePhoto" class="w-full block profile-photo object-cover h-96" src="profile.png"
+              alt="Dhananjay">
             <div class="absolute left-4 bottom-4 p-3 rounded-lg glass">
               <div class="font-bold">Dhananjay</div>
               <div class="text-xs text-slate-300">Video Editor • Motion Designer</div>
@@ -133,7 +252,7 @@
       </div>
     </section>
 
-  
+
 
     <section id="work" class="max-w-6xl mx-auto px-6 mt-16">
       <div class="flex items-center justify-between">
@@ -144,9 +263,11 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 mt-6">
-        
+
         <a href="work-podcast.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://plus.unsplash.com/premium_photo-1683140707316-42df87760f3f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" class="w-full h-44 object-cover" alt="Podcast video">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1683140707316-42df87760f3f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870"
+            class="w-full h-44 object-cover" alt="Podcast video">
           <div class="p-4">
             <div class="font-semibold">Podcast Editing</div>
             <div class="text-xs text-slate-300">Engaging Podcast Cuts with Seamless Flow</div>
@@ -154,7 +275,8 @@
         </a>
 
         <a href="work-documentary.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Documentary">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=900&auto=format&fit=crop"
+            class="w-full h-44 object-cover" alt="Documentary">
           <div class="p-4">
             <div class="font-semibold">Documentary</div>
             <div class="text-xs text-slate-300">Narrative Editing with Depth, Pace & Visual Consistency</div>
@@ -162,7 +284,8 @@
         </a>
 
         <a href="motion-graphic.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="motion-graphic Reels">
+          <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=900&auto=format&fit=crop"
+            class="w-full h-44 object-cover" alt="motion-graphic Reels">
           <div class="p-4">
             <div class="font-semibold">Motion Graphics</div>
             <div class="text-xs text-slate-300">AE & Motion Graphics for brand promotions.</div>
@@ -170,7 +293,9 @@
         </a>
 
         <a href="work-reels.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://images.unsplash.com/photo-1683721003111-070bcc053d8b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1100" class="w-full h-44 object-cover" alt="Social Media Reels">
+          <img
+            src="https://images.unsplash.com/photo-1683721003111-070bcc053d8b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1100"
+            class="w-full h-44 object-cover" alt="Social Media Reels">
           <div class="p-4">
             <div class="font-semibold">Social Media (Reels)</div>
             <div class="text-xs text-slate-300">Engaging short-form content for TikTok and Reels.</div>
@@ -178,7 +303,8 @@
         </a>
 
         <a href="work-youtube.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?q=80&w=900&auto=format&fit=crop" class="w-full h-44 object-cover" alt="Corporate Videos">
+          <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?q=80&w=900&auto=format&fit=crop"
+            class="w-full h-44 object-cover" alt="Corporate Videos">
           <div class="p-4">
             <div class="font-semibold">Youtube Videos</div>
             <div class="text-xs text-slate-300">Professional edits for training and external videos.</div>
@@ -186,7 +312,9 @@
         </a>
 
         <a href="work-promo.html" class="category-card glass rounded-xl overflow-hidden block">
-          <img src="https://images.unsplash.com/photo-1501780392773-287d506245a5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" class="w-full h-44 object-cover" alt="Motion Graphics">
+          <img
+            src="https://images.unsplash.com/photo-1501780392773-287d506245a5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870"
+            class="w-full h-44 object-cover" alt="Motion Graphics">
           <div class="p-4">
             <div class="font-semibold">Promo Reels</div>
             <div class="text-xs text-slate-300">Standalone 2D/3D motion design and logo animations.</div>
@@ -198,116 +326,122 @@
     <div id="lightbox" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4">
       <div class="max-w-4xl w-full relative">
         <button id="closeLB" class="absolute -top-6 right-0 bg-white/10 px-3 py-2 rounded-md">Close</button>
-        <iframe id="lbFrame" src="" class="w-full aspect-video rounded-xl" allow="autoplay; encrypted-media" title="Preview"></iframe>
+        <iframe id="lbFrame" src="" class="w-full aspect-video rounded-xl" allow="autoplay; encrypted-media"
+          title="Preview"></iframe>
       </div>
     </div>
 
-   <section id="about" class="max-w-6xl mx-auto px-6 mt-20 grid md:grid-cols-2 gap-12 items-center">
-  
-  <!-- LEFT SIDE CONTENT -->
-  <div data-aos="fade-right">
-    <h2 class="text-2xl font-bold">About Me</h2>
+    <section id="about" class="max-w-6xl mx-auto px-6 mt-20 grid md:grid-cols-2 gap-12 items-center">
 
-    <p class="text-slate-300 mt-4 leading-relaxed">
-      I’m Dhananjay, a passionate Video Editor & Motion Designer with 4+ years of experience.
-      I specialize in documentary-style edits, cinematic promos, reels, YouTube content, and
-      professional lecture editing. With expertise in Adobe Premiere Pro & After Effects,
-      I bring stories to life through clean cuts, smooth transitions, and engaging visuals.
-    </p>
+      <!-- LEFT SIDE CONTENT -->
+      <div data-aos="fade-right">
+        <h2 class="text-2xl font-bold">About Me</h2>
 
-    <p class="text-slate-300 mt-2 leading-relaxed">
-      Worked with KM Astroguru Pvt Ltd as a full-time editor and collaborated with several
-      brands and creators as a freelancer. I focus on fast delivery, creative storytelling,
-      and visually appealing motion graphics.
-    </p>
+        <p class="text-slate-300 mt-4 leading-relaxed">
+          I’m Dhananjay, a passionate Video Editor & Motion Designer with 4+ years of experience.
+          I specialize in documentary-style edits, cinematic promos, reels, YouTube content, and
+          professional lecture editing. With expertise in Adobe Premiere Pro & After Effects,
+          I bring stories to life through clean cuts, smooth transitions, and engaging visuals.
+        </p>
 
-    <!-- EXPERIENCE SECTION -->
-    <h2 class="text-2xl font-bold mt-10">Experience & Education</h2>
+        <p class="text-slate-300 mt-2 leading-relaxed">
+          Worked with KM Astroguru Pvt Ltd as a full-time editor and collaborated with several
+          brands and creators as a freelancer. I focus on fast delivery, creative storytelling,
+          and visually appealing motion graphics.
+        </p>
 
-    <div class="mt-8 space-y-6">
-      <!-- 2024 -->
-      <div class="flex gap-6 items-start" data-aos="fade-left">
-        <div class="w-14 text-center">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">24</div>
-        </div>
-        <div>
-          <div class="font-semibold">Video Editor — KM Astroguru Pvt Ltd (2024–Present)</div>
-          <div class="text-slate-300 text-sm">Full-time video editor handling long-form lectures, promo reels, and motion graphics.</div>
+        <!-- EXPERIENCE SECTION -->
+        <h2 class="text-2xl font-bold mt-10">Experience & Education</h2>
+
+        <div class="mt-8 space-y-6">
+          <!-- 2024 -->
+          <div class="flex gap-6 items-start" data-aos="fade-left">
+            <div class="w-14 text-center">
+              <div
+                class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">
+                24</div>
+            </div>
+            <div>
+              <div class="font-semibold">Video Editor — KM Astroguru Pvt Ltd (2024–Present)</div>
+              <div class="text-slate-300 text-sm">Full-time video editor handling long-form lectures, promo reels, and
+                motion graphics.</div>
+            </div>
+          </div>
+
+          <!-- 2023 -->
+          <div class="flex gap-6 items-start" data-aos="fade-left">
+            <div class="w-14 text-center">
+              <div
+                class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">
+                23</div>
+            </div>
+            <div>
+              <div class="font-semibold">Freelance Video Editor (2023–2024)</div>
+              <div class="text-slate-300 text-sm">Worked with creators on vlogs, travel edits, and brand promos.</div>
+            </div>
+          </div>
+
+          <!-- 2022 -->
+          <div class="flex gap-6 items-start" data-aos="fade-left">
+            <div class="w-14 text-center">
+              <div
+                class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">
+                22</div>
+            </div>
+            <div>
+              <div class="font-semibold">BA — Graduated 2022</div>
+              <div class="text-slate-300 text-sm">Academic background with creative projects and short films.</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- 2023 -->
-      <div class="flex gap-6 items-start" data-aos="fade-left">
-        <div class="w-14 text-center">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">23</div>
+      <!-- RIGHT SIDE IMAGE -->
+      <div class="relative group flex flex-col items-center" data-aos="fade-left">
+
+        <!-- Image Frame with Border -->
+        <div class="relative w-80 h-96 rounded-3xl overflow-hidden border-4 border-slate-600 shadow-xl">
+          <img src="myPhoto.webp" alt="Dhananjay"
+            class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
         </div>
-        <div>
-          <div class="font-semibold">Freelance Video Editor (2023–2024)</div>
-          <div class="text-slate-300 text-sm">Worked with creators on vlogs, travel edits, and brand promos.</div>
+
+        <!-- Buttons Section -->
+        <div class="flex gap-4 mt-6">
+
+          <!-- View Resume Button -->
+          <button onclick="openResumeModal()"
+            class="px-6 py-2 bg-slate-800 text-white font-semibold rounded-xl shadow-md border border-slate-600 hover:bg-slate-700 transition">
+            View Resume
+          </button>
+
+          <!-- Download Resume Button -->
+          <a href="https://drive.google.com/uc?export=download&id=1g7DJz7lfVlOdyuHUgcCTVWRkNlctBJ21"
+            class="px-6 py-2 bg-gradient-to-r from-cyan-400 to-orange-400 text-black font-semibold rounded-xl shadow-md hover:opacity-90 transition">
+            Download Resume
+          </a>
+
+        </div>
+      </div>
+      <!-- Resume Modal -->
+      <div id="resumeModal"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center z-50">
+        <div class="bg-white w-[90%] h-[90%] rounded-xl shadow-xl overflow-hidden relative">
+
+          <!-- Close Button -->
+          <button onclick="closeResumeModal()"
+            class="absolute top-3 right-3 bg-black text-white w-8 h-8 rounded-full grid place-items-center text-lg">
+            ✕
+          </button>
+
+          <!-- Resume Iframe Viewer -->
+          <iframe src="https://drive.google.com/file/d/1g7DJz7lfVlOdyuHUgcCTVWRkNlctBJ21/preview" class="w-full h-full">
+          </iframe>
+
         </div>
       </div>
 
-      <!-- 2022 -->
-      <div class="flex gap-6 items-start" data-aos="fade-left">
-        <div class="w-14 text-center">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-orange-400 text-black grid place-items-center font-bold">22</div>
-        </div>
-        <div>
-          <div class="font-semibold">BA — Graduated 2022</div>
-          <div class="text-slate-300 text-sm">Academic background with creative projects and short films.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT SIDE IMAGE -->
-<div class="relative group flex flex-col items-center" data-aos="fade-left">
-
-  <!-- Image Frame with Border -->
-  <div class="relative w-80 h-96 rounded-3xl overflow-hidden border-4 border-slate-600 shadow-xl">
-    <img src="myPhoto.webp" 
-         alt="Dhananjay"
-         class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
-  </div>
-
-  <!-- Buttons Section -->
-  <div class="flex gap-4 mt-6">
-
-    <!-- View Resume Button -->
-    <button onclick="openResumeModal()"
-      class="px-6 py-2 bg-slate-800 text-white font-semibold rounded-xl shadow-md border border-slate-600 hover:bg-slate-700 transition">
-      View Resume
-    </button>
-
-    <!-- Download Resume Button -->
-    <a href="https://drive.google.com/uc?export=download&id=1g7DJz7lfVlOdyuHUgcCTVWRkNlctBJ21"
-       class="px-6 py-2 bg-gradient-to-r from-cyan-400 to-orange-400 text-black font-semibold rounded-xl shadow-md hover:opacity-90 transition">
-      Download Resume
-    </a>
-
-  </div>
-</div>
-<!-- Resume Modal -->
-<div id="resumeModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center z-50">
-  <div class="bg-white w-[90%] h-[90%] rounded-xl shadow-xl overflow-hidden relative">
-
-    <!-- Close Button -->
-    <button onclick="closeResumeModal()"
-      class="absolute top-3 right-3 bg-black text-white w-8 h-8 rounded-full grid place-items-center text-lg">
-      ✕
-    </button>
-
-    <!-- Resume Iframe Viewer -->
-    <iframe 
-      src="https://drive.google.com/file/d/1g7DJz7lfVlOdyuHUgcCTVWRkNlctBJ21/preview"
-      class="w-full h-full">
-    </iframe>
-
-  </div>
-</div>
-
-</section>
- <section id="skills" class="max-w-6xl mx-auto px-6 mt-16">
+    </section>
+    <section id="skills" class="max-w-6xl mx-auto px-6 mt-16">
       <h2 class="text-2xl font-bold">Skills & Tools</h2>
       <p class="text-slate-300 mt-2">Software proficiency with visual indicators</p>
       <div class="grid md:grid-cols-3 gap-6 mt-6">
@@ -319,7 +453,9 @@
               <div class="text-xs text-slate-300">Advanced editing, timelines, transitions</div>
             </div>
           </div>
-          <div class="mt-4 skill-bar"><div class="skill-fill" data-percent="95"></div></div>
+          <div class="mt-4 skill-bar">
+            <div class="skill-fill" data-percent="95"></div>
+          </div>
         </div>
 
         <div class="glass rounded-xl p-4">
@@ -330,7 +466,9 @@
               <div class="text-xs text-slate-300">Motion design, VFX, compositing</div>
             </div>
           </div>
-          <div class="mt-4 skill-bar"><div class="skill-fill" data-percent="85"></div></div>
+          <div class="mt-4 skill-bar">
+            <div class="skill-fill" data-percent="85"></div>
+          </div>
         </div>
 
         <div class="glass rounded-xl p-4">
@@ -341,7 +479,9 @@
               <div class="text-xs text-slate-300">Retouching, thumbnails, matte painting</div>
             </div>
           </div>
-          <div class="mt-4 skill-bar"><div class="skill-fill" data-percent="80"></div></div>
+          <div class="mt-4 skill-bar">
+            <div class="skill-fill" data-percent="80"></div>
+          </div>
         </div>
 
         <div class="glass rounded-xl p-4">
@@ -352,7 +492,9 @@
               <div class="text-xs text-slate-300">Vector art, thumbnails, icons</div>
             </div>
           </div>
-          <div class="mt-4 skill-bar"><div class="skill-fill" data-percent="75"></div></div>
+          <div class="mt-4 skill-bar">
+            <div class="skill-fill" data-percent="75"></div>
+          </div>
         </div>
 
         <div class="glass rounded-xl p-4">
@@ -363,7 +505,9 @@
               <div class="text-xs text-slate-300">Vector & print layout</div>
             </div>
           </div>
-          <div class="mt-4 skill-bar"><div class="skill-fill" data-percent="60"></div></div>
+          <div class="mt-4 skill-bar">
+            <div class="skill-fill" data-percent="60"></div>
+          </div>
         </div>
 
         <div class="glass rounded-xl p-4">
@@ -374,75 +518,94 @@
               <div class="text-xs text-slate-300">Color grading and finishing</div>
             </div>
           </div>
-          <div class="mt-4 skill-bar"><div class="skill-fill" data-percent="85"></div></div>
+          <div class="mt-4 skill-bar">
+            <div class="skill-fill" data-percent="85"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- AUTO SCROLLING TESTIMONIALS -->
-<section id="testimonials" class="max-w-6xl mx-auto px-6 mt-20">
-  <h2 class="text-2xl font-bold">Client Testimonials</h2>
+   <section id="testimonials" class="max-w-6xl mx-auto px-6 mt-20">
+  <h2 class="text-2xl font-bold mb-6">Client Testimonials</h2>
 
-  <div class="relative overflow-hidden mt-8 group">
-    <div class="flex gap-6 animate-scroll group-hover:[animation-play-state:paused]">
+  <div class="relative">
 
-      <!-- Testimonial 1 -->
-      <div class="min-w-[400px] glass p-6 rounded-xl flex items-start gap-4">
-        <img src="image/client1.webp" class="w-12 h-12 rounded-full object-cover" />
-        <div>
-          <p class="italic text-sm">“"Every video I gave to Dhananjay, he delivered beyond expectations.
-Smooth transitions, clean audio, and great visual appeal — everything was perfect."</p>
-          <div class="mt-2 font-semibold">K.M. Sinha</div>
-          <div class="text-xs text-slate-400">Astrologer</div>
+    <!-- Slider Visible Area -->
+    <div id="testimonialSlider" class="overflow-hidden relative">
+      <div id="testimonialTrack" class="flex transition-all duration-700 ease-[cubic-bezier(.4,0,.2,1)]">
+
+        <!-- Testimonial 1 -->
+        <div class="min-w-full flex items-center gap-4 p-6 glass rounded-xl">
+          <img src="image/client1.webp" class="w-14 h-14 rounded-full object-cover" />
+          <div>
+            <p class="italic text-sm">“Every video I gave to Dhananjay, he delivered beyond expectations. Smooth transitions, clean audio, and great visual appeal — everything was perfect.”</p>
+            <div class="mt-2 font-semibold">K.M. Sinha</div>
+            <div class="text-xs text-slate-400">Astrologer</div>
+          </div>
         </div>
-      </div>
 
-      <!-- Testimonial 2 -->
-      <div class="min-w-[350px] glass p-6 rounded-xl flex items-start gap-4">
-        <img src="image/client2.webp" class="w-12 h-12 rounded-full object-cover" />
-        <div>
-          <p class="italic text-sm">“Fast delivery, great color grading. I always hire him for my video work.”</p>
-          <div class="mt-2 font-semibold">Sukhman</div>
-          <div class="text-xs text-slate-400">Reel Creator • Producer</div>
+        <!-- Testimonial 2 -->
+        <div class="min-w-full flex items-center gap-4 p-6 glass rounded-xl">
+          <img src="image/client2.webp" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <p class="italic text-sm">“Fast delivery, great color grading. I always hire him for my video work.”</p>
+            <div class="mt-2 font-semibold">Sukhman</div>
+            <div class="text-xs text-slate-400">Reel Creator • Producer</div>
+          </div>
         </div>
-      </div>
 
-      <!-- Testimonial 3 -->
-      <div class="min-w-[350px] glass p-6 rounded-xl flex items-start gap-4">
-        <img src="image/client3.webp" class="w-12 h-12 rounded-full object-cover" />
-        <div>
-          <p class="italic text-sm">“Dhananjay edited my podcast video beautifully. His storytelling sense is amazing!”</p>
-          <div class="mt-2 font-semibold">Gazal Arora</div>
-          <div class="text-xs text-slate-400">Moderator • Presenter</div>
+        <!-- Testimonial 3 -->
+        <div class="min-w-full flex items-center gap-4 p-6 glass rounded-xl">
+          <img src="image/client3.webp" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <p class="italic text-sm">“Dhananjay edited my podcast video beautifully. His storytelling sense is amazing!”</p>
+            <div class="mt-2 font-semibold">Gazal Arora</div>
+            <div class="text-xs text-slate-400">Moderator • Presenter</div>
+          </div>
         </div>
-      </div>
 
-       <!-- Testimonial 4 -->
-      <div class="min-w-[350px] glass p-6 rounded-xl flex items-start gap-4">
-        <img src="image/client4.webp" class="w-12 h-12 rounded-full object-cover" />
-        <div>
-          <p class="italic text-sm">“His motion graphics & pace control gave our product video a premium feel.”</p>
-          <div class="mt-2 font-semibold">Baani Bathla</div>
-          <div class="text-xs text-slate-400">Startup Founder</div>
+        <!-- Testimonial 4 -->
+        <div class="min-w-full flex items-center gap-4 p-6 glass rounded-xl">
+          <img src="image/client4.webp" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <p class="italic text-sm">“His motion graphics & pace control gave our product video a premium feel.”</p>
+            <div class="mt-2 font-semibold">Baani Bathla</div>
+            <div class="text-xs text-slate-400">Startup Founder</div>
+          </div>
         </div>
-      </div>
 
+      </div>
     </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-center gap-3 mt-4">
+      <button id="prevBtn" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition">◀</button>
+      <button id="nextBtn" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition">▶</button>
+    </div>
+
   </div>
 </section>
+
 
     <section id="contact" class="max-w-6xl mx-auto px-6 mt-20 mb-32">
       <div class="grid md:grid-cols-2 gap-6">
         <div class="glass p-6 rounded-xl">
           <h3 class="text-xl font-bold">Get in touch</h3>
-          <p class="text-slate-300">Phone: <strong>7388688968</strong><br>Email: <strong>iamdk8968@gmail.com</strong></p>
+          <p class="text-slate-300">Phone: <strong>7388688968</strong><br>Email: <strong>iamdk8968@gmail.com</strong>
+          </p>
           <form id="contactForm" class="mt-4 space-y-3">
-            <input name="name" placeholder="Your name" required class="w-full p-3 rounded-md bg-transparent border border-white/5" />
-            <input name="email" type="email" placeholder="Your email" required class="w-full p-3 rounded-md bg-transparent border border-white/5" />
-            <textarea name="message" rows="5" placeholder="Message" required class="w-full p-3 rounded-md bg-transparent border border-white/5"></textarea>
+            <input name="name" placeholder="Your name" required
+              class="w-full p-3 rounded-md bg-transparent border border-white/5" />
+            <input name="email" type="email" placeholder="Your email" required
+              class="w-full p-3 rounded-md bg-transparent border border-white/5" />
+            <textarea name="message" rows="5" placeholder="Message" required
+              class="w-full p-3 rounded-md bg-transparent border border-white/5"></textarea>
             <div class="flex gap-3">
-              <button type="submit" class="px-4 py-2 bg-gradient-to-r from-cyan-400 to-orange-400 text-black rounded-md font-semibold">Send Message</button>
-              <a href="https://wa.me/7388688968?text=Hi%20Dhananjay%2C%20I%20would%20like%20to%20hire%20you" target="_blank" class="px-4 py-2 bg-green-500 rounded-md">Chat on WhatsApp</a>
+              <button type="submit"
+                class="px-4 py-2 bg-gradient-to-r from-cyan-400 to-orange-400 text-black rounded-md font-semibold">Send
+                Message</button>
+              <a href="https://wa.me/7388688968?text=Hi%20Dhananjay%2C%20I%20would%20like%20to%20hire%20you"
+                target="_blank" class="px-4 py-2 bg-green-500 rounded-md">Chat on WhatsApp</a>
             </div>
             <div id="formMsg" class="text-sm text-slate-300 mt-2"></div>
           </form>
@@ -450,7 +613,8 @@ Smooth transitions, clean audio, and great visual appeal — everything was perf
 
         <div class="glass p-6 rounded-xl">
           <h3 class="text-xl font-bold">Availability & Rates</h3>
-          <p class="text-slate-300 mt-2">Open for freelance — reasonable turnaround. Typical services: video editing, motion graphics, color grading, thumbnails, and short-form editing for social platforms.</p>
+          <p class="text-slate-300 mt-2">Open for freelance — reasonable turnaround. Typical services: video editing,
+            motion graphics, color grading, thumbnails, and short-form editing for social platforms.</p>
           <div class="mt-4 space-y-2">
             <div class="chip inline-block px-3 py-1 rounded-full glass">YouTube | Reels | Ads</div>
             <div class="chip inline-block px-3 py-1 rounded-full glass">Full Edit + Color Grade</div>
@@ -460,190 +624,234 @@ Smooth transitions, clean audio, and great visual appeal — everything was perf
       </div>
     </section>
 
-    <footer class="max-w-6xl mx-auto px-6 mb-12 text-center text-slate-400">© 2025 Dhananjay — Video Editor • Motion Designer</footer>
+    <footer class="max-w-6xl mx-auto px-6 mb-12 text-center text-slate-400">© 2025 Dhananjay — Video Editor • Motion
+      Designer</footer>
   </main>
 
   <script>
 
-     AOS.init({
-    once: true,
-    duration: 900
-  });
+    AOS.init({
+      once: true,
+      duration: 900
+    });
 
-   function openResumeModal() {
-    document.getElementById("resumeModal").classList.remove("hidden");
-  }
-  function closeResumeModal() {
-    document.getElementById("resumeModal").classList.add("hidden");
-  }
-  /*******************************
-   * Basic utilities & setup
-   *******************************/
-  // Preloader animation (using simple rotate)
-  const preloader = document.getElementById('preloader');
-  gsap.to("#arc", {rotation:360, transformOrigin:"50% 50%", repeat:-1, duration:1.8, ease:"power1.inOut"});
-
-  // Simulate load complete after assets ready (in real use wait for fonts/images)
-  window.addEventListener('load', () => {
-    gsap.to(preloader, {autoAlpha:0, y:-20, duration:0.6, onComplete: ()=> preloader.style.display='none'});
-  });
-// ✅ MOBILE MENU TOGGLE
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-
-menuBtn.addEventListener("click", () => {
-    if (mobileMenu.classList.contains("hidden")) {
-        mobileMenu.classList.remove("hidden");
-        gsap.fromTo(
-            mobileMenu,
-            { opacity: 0, y: -20 },
-            { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
-        );
-    } else {
-        gsap.to(mobileMenu, {
-            opacity: 0,
-            y: -20,
-            duration: 0.3,
-            ease: "power2.in",
-            onComplete: () => mobileMenu.classList.add("hidden")
-        });
+    function openResumeModal() {
+      document.getElementById("resumeModal").classList.remove("hidden");
     }
+    function closeResumeModal() {
+      document.getElementById("resumeModal").classList.add("hidden");
+    }
+
+    // testimonial scroll
+
+    const track = document.getElementById("testimonialTrack");
+const slider = document.getElementById("testimonialSlider");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let index = 0;
+const total = track.children.length;
+
+// Update slide position
+function updateSlide() {
+  track.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Manual Navigation
+nextBtn.onclick = () => {
+  index = (index + 1) % total;
+  updateSlide();
+};
+
+prevBtn.onclick = () => {
+  index = (index - 1 + total) % total;
+  updateSlide();
+};
+
+// Auto-scroll
+let autoSlide = setInterval(() => {
+  index = (index + 1) % total;
+  updateSlide();
+}, 3500);
+
+// Pause on hover
+slider.addEventListener("mouseenter", () => clearInterval(autoSlide));
+slider.addEventListener("mouseleave", () => {
+  autoSlide = setInterval(() => {
+    index = (index + 1) % total;
+    updateSlide();
+  }, 3500);
 });
 
-  // Cursor glow
-  const cursor = document.getElementById('cursorGlow');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
+    /*******************************
+     * Basic utilities & setup
+     *******************************/
+    // Preloader animation (using simple rotate)
+    const preloader = document.getElementById('preloader');
+    gsap.to("#arc", { rotation: 360, transformOrigin: "50% 50%", repeat: -1, duration: 1.8, ease: "power1.inOut" });
 
-  // Theme toggle
-  const themeToggle = document.getElementById('themeToggle');
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light');
-  });
-
-  /*******************************
-   * Particles (canvas)
-   *******************************/
-  (function initParticles(){
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let w = canvas.width = innerWidth;
-    let h = canvas.height = innerHeight;
-    window.addEventListener('resize', ()=>{ w=canvas.width=innerWidth; h=canvas.height=innerHeight; });
-    const particles = [];
-    const colors = ['#00d4ff','#ff7a59','#7bf0d4','#ffd36a'];
-    function rand(min,max){ return Math.random()*(max-min)+min; }
-    for(let i=0;i<80;i++){
-      particles.push({x:rand(0,w), y:rand(0,h), r:rand(0.6,2.5), vx:rand(-0.3,0.3), vy:rand(-0.2,0.2), c:colors[i%colors.length]})
-    }
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      particles.forEach(p=>{
-        p.x += p.vx; p.y += p.vy;
-        if(p.x<0) p.x = w; if(p.x>w) p.x = 0;
-        if(p.y<0) p.y = h; if(p.y>h) p.y = 0;
-        ctx.beginPath(); ctx.fillStyle = p.c; ctx.globalAlpha = 0.12; ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-      });
-      requestAnimationFrame(draw);
-    }
-    draw();
-  })();
-
-  /*******************************
-   * 3D Parallax on profile card
-   *******************************/
-  (function parallax(){
-    const wrap = document.getElementById('parallaxWrap');
-    const strength = 18;
-    wrap.addEventListener('pointermove', e=>{
-      const rect = wrap.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      gsap.to(wrap, {rotationY: x * strength, rotationX: -y * strength, transformPerspective:800, transformOrigin:'center', ease:'power3.out', duration:0.6});
+    // Simulate load complete after assets ready (in real use wait for fonts/images)
+    window.addEventListener('load', () => {
+      gsap.to(preloader, { autoAlpha: 0, y: -20, duration: 0.6, onComplete: () => preloader.style.display = 'none' });
     });
-    wrap.addEventListener('pointerleave', ()=> gsap.to(wrap, {rotationY:0, rotationX:0, duration:0.6, ease:'power3.out'}));
-  })();
+    // ✅ MOBILE MENU TOGGLE
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
 
-  /*******************************
-   * Animate skill bars when visible
-   *******************************/
-  gsap.registerPlugin(ScrollTrigger);
-  document.querySelectorAll('.skill-fill').forEach(fill => {
-    const pct = fill.getAttribute('data-percent') || 70;
-    gsap.to(fill, {
-      width: pct + '%',
-      duration: 1.4,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: fill,
-        start: 'top 80%'
+    menuBtn.addEventListener("click", () => {
+      if (mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.remove("hidden");
+        gsap.fromTo(
+          mobileMenu,
+          { opacity: 0, y: -20 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
+        );
+      } else {
+        gsap.to(mobileMenu, {
+          opacity: 0,
+          y: -20,
+          duration: 0.3,
+          ease: "power2.in",
+          onComplete: () => mobileMenu.classList.add("hidden")
+        });
       }
     });
-  });
 
-  /*******************************
-   * Projects lightbox (video)
-   * This now only works on .proj-card, not .category-card
-   * You can re-use this JS on your new pages (e.g., work-vlogs.html)
-   *******************************/
-  const lightbox = document.getElementById('lightbox');
-  const lbFrame = document.getElementById('lbFrame');
-  document.querySelectorAll('.proj-card').forEach(card => {
-    card.addEventListener('click', ()=>{
-      const src = card.dataset.src;
-      lbFrame.src = src + '?autoplay=1';
-      lightbox.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
+    // Cursor glow
+    const cursor = document.getElementById('cursorGlow');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
     });
-  });
-  document.getElementById('closeLB').addEventListener('click', ()=> {
-    lbFrame.src = '';
-    lightbox.classList.add('hidden');
-    document.body.style.overflow = '';
-  });
 
-  /*******************************
-   * Smooth scroll for nav links
-   *******************************/
-  document.querySelectorAll('header nav a').forEach(a => {
-    a.addEventListener('click', e=>{
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+    });
+
+    /*******************************
+     * Particles (canvas)
+     *******************************/
+    (function initParticles() {
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = innerWidth;
+      let h = canvas.height = innerHeight;
+      window.addEventListener('resize', () => { w = canvas.width = innerWidth; h = canvas.height = innerHeight; });
+      const particles = [];
+      const colors = ['#00d4ff', '#ff7a59', '#7bf0d4', '#ffd36a'];
+      function rand(min, max) { return Math.random() * (max - min) + min; }
+      for (let i = 0; i < 80; i++) {
+        particles.push({ x: rand(0, w), y: rand(0, h), r: rand(0.6, 2.5), vx: rand(-0.3, 0.3), vy: rand(-0.2, 0.2), c: colors[i % colors.length] })
+      }
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+          ctx.beginPath(); ctx.fillStyle = p.c; ctx.globalAlpha = 0.12; ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    /*******************************
+     * 3D Parallax on profile card
+     *******************************/
+    (function parallax() {
+      const wrap = document.getElementById('parallaxWrap');
+      const strength = 18;
+      wrap.addEventListener('pointermove', e => {
+        const rect = wrap.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        gsap.to(wrap, { rotationY: x * strength, rotationX: -y * strength, transformPerspective: 800, transformOrigin: 'center', ease: 'power3.out', duration: 0.6 });
+      });
+      wrap.addEventListener('pointerleave', () => gsap.to(wrap, { rotationY: 0, rotationX: 0, duration: 0.6, ease: 'power3.out' }));
+    })();
+
+    /*******************************
+     * Animate skill bars when visible
+     *******************************/
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.skill-fill').forEach(fill => {
+      const pct = fill.getAttribute('data-percent') || 70;
+      gsap.to(fill, {
+        width: pct + '%',
+        duration: 1.4,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: fill,
+          start: 'top 80%'
+        }
+      });
+    });
+
+    /*******************************
+     * Projects lightbox (video)
+     * This now only works on .proj-card, not .category-card
+     * You can re-use this JS on your new pages (e.g., work-vlogs.html)
+     *******************************/
+    const lightbox = document.getElementById('lightbox');
+    const lbFrame = document.getElementById('lbFrame');
+    document.querySelectorAll('.proj-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const src = card.dataset.src;
+        lbFrame.src = src + '?autoplay=1';
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    document.getElementById('closeLB').addEventListener('click', () => {
+      lbFrame.src = '';
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+
+    /*******************************
+     * Smooth scroll for nav links
+     *******************************/
+    document.querySelectorAll('header nav a').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const href = a.getAttribute('href');
+        if (!href || href === '#') return;
+        gsap.to(window, { duration: 0.9, scrollTo: href, ease: 'power2.out' });
+      });
+    });
+
+    /*******************************
+     * Contact form handling
+     * - Sends mailto fallback and shows instructions.
+     * - Optionally you can connect to EmailJS or your backend later.
+     *******************************/
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', e => {
       e.preventDefault();
-      const href = a.getAttribute('href');
-      if(!href || href === '#') return;
-      gsap.to(window, {duration:0.9, scrollTo:href, ease:'power2.out'});
+      const fd = new FormData(contactForm);
+      const name = fd.get('name'), email = fd.get('email'), message = fd.get('message');
+      // mailto fallback:
+      const subject = encodeURIComponent('Website enquiry from ' + name);
+      const body = encodeURIComponent(`Name: ${name}%0AEmail: ${email}%0A%0A${message}`);
+      const mailto = `mailto:iamdk8968@gmail.com?subject=${subject}&body=${body}`;
+      // Open user's email client
+      window.location.href = mailto;
+      document.getElementById('formMsg').textContent = 'Opened your email client. For backend emailing, connect EmailJS or a server endpoint — I can add EmailJS integration if you want.';
+      contactForm.reset();
     });
-  });
 
-  /*******************************
-   * Contact form handling
-   * - Sends mailto fallback and shows instructions.
-   * - Optionally you can connect to EmailJS or your backend later.
-   *******************************/
-  const contactForm = document.getElementById('contactForm');
-  contactForm.addEventListener('submit', e=>{
-    e.preventDefault();
-    const fd = new FormData(contactForm);
-    const name = fd.get('name'), email = fd.get('email'), message = fd.get('message');
-    // mailto fallback:
-    const subject = encodeURIComponent('Website enquiry from ' + name);
-    const body = encodeURIComponent(`Name: ${name}%0AEmail: ${email}%0A%0A${message}`);
-    const mailto = `mailto:iamdk8968@gmail.com?subject=${subject}&body=${body}`;
-    // Open user's email client
-    window.location.href = mailto;
-    document.getElementById('formMsg').textContent = 'Opened your email client. For backend emailing, connect EmailJS or a server endpoint — I can add EmailJS integration if you want.';
-    contactForm.reset();
-  });
-
-  /*******************************
-   * Small entrance animations for sections
-   *******************************/
-  gsap.from('h1, .tag, .hero-grid > div:first-child .glass, #profileCard', {y:20, autoAlpha:0, duration:0.9, stagger:0.12, ease:'power2.out'});
-  gsap.utils.toArray('section').forEach((sec, i) => {
-    gsap.from(sec, {y:20, autoAlpha:0, duration:0.9, delay:0.15 + i*0.05, scrollTrigger:{trigger:sec, start:'top 85%'}});
-  });
+    /*******************************
+     * Small entrance animations for sections
+     *******************************/
+    gsap.from('h1, .tag, .hero-grid > div:first-child .glass, #profileCard', { y: 20, autoAlpha: 0, duration: 0.9, stagger: 0.12, ease: 'power2.out' });
+    gsap.utils.toArray('section').forEach((sec, i) => {
+      gsap.from(sec, { y: 20, autoAlpha: 0, duration: 0.9, delay: 0.15 + i * 0.05, scrollTrigger: { trigger: sec, start: 'top 85%' } });
+    });
 
   </script>
 </body>
+
 </html>
